@@ -1,0 +1,104 @@
+
+<app-navbar></app-navbar>
+<!-- <app-localizacion></app-localizacion> -->
+
+<div class="container main-container">
+
+  <div class="row">
+
+    <div class="col-md-4">
+
+      <div *ngIf="!marcadorSel" class="animated fadeIn fast">
+        <div class="alert alert-info" role="alert">
+          <strong>Haga click</strong>
+        seleccione uno de los turistas.
+        </div>
+      </div>
+
+      <div *ngIf="marcadorSel"
+            class="animated fadeIn fast">
+        <h5>Datos Personales</h5>
+        <hr>
+        
+        <div class="form-group text-center">
+          <i class="fa fa-user fa-5x"></i>
+        </div>
+
+        <div class="form-group">
+          <label>Nombre</label>
+          <input [(ngModel)]="marcadorSel.titulo"
+                  type="text"
+                  name="nombre"
+                  class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Apellido</label>
+          <input [(ngModel)]="marcadorSel.titulo"
+          type="text"
+          name="nombre"
+          class="form-control">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Latitud</label>
+          <input [(ngModel)]="marcadorSel.titulo"
+          type="text"
+          name="nombre"
+          class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Longitud</label>
+          <input [(ngModel)]="marcadorSel.titulo"
+          type="text"
+          name="nombre"
+          class="form-control">
+        </div>
+        
+
+
+        <!-- <button (click)="_ms.guardarMarcadores()"
+                type="button" class="btn btn-outline-primary btn-block">
+          Guardar Cambios
+        </button> -->
+      </div>
+
+
+    </div>
+
+    <div class="col-md-8 animated fadeIn fast">
+
+      <sebm-google-map
+                [latitude]="lat"
+                [longitude]="lng"
+                [zoom]="zoom"
+                (mapClick)="clickMapa( $event )">
+
+        <sebm-google-map-marker *ngFor="let marcador of _ms.marcadores; let i = index"
+                [latitude]="marcador.lat"
+                [longitude]="marcador.lng"
+                [title]="marcador.titulo"
+                [markerDraggable]="marcador.draggable"
+                (markerClick)="clickMarcador( marcador, i )"
+                (dragEnd)="dragEndMarcador( marcador, $event )">
+            <sebm-google-map-info-window>
+               <strong>{{ marcador.titulo }}</strong>
+              <p *ngIf="marcador.desc">
+                {{ marcador.desc }}
+              </p>
+              <p>
+                <a (click)="_ms.borrarMarcador(i); marcadorSel=null;"
+                    class="text-danger puntero">Borrar marcador</a>
+              </p>
+            </sebm-google-map-info-window>
+        </sebm-google-map-marker>
+
+      </sebm-google-map>
+
+    </div>
+  </div>
+
+</div>
