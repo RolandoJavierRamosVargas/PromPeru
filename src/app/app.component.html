@@ -17,45 +17,62 @@
 
       <div *ngIf="marcadorSel"
             class="animated fadeIn fast">
-        <h5>Datos Personales</h5>
+        <h5 class="text-center text-primary">DATOS PERSONALES</h5>
         <hr>
         
         <div class="form-group text-center">
-          <i class="fa fa-user fa-5x"></i>
+          <img src="https://pbs.twimg.com/profile_images/1146847934555787269/QfTUfU7y_200x200.jpg"  alt="se hizo una imagen">
+          <div class="container mt-2">
+            <button class="btn btn-danger">Peligro Perdida</button>
+            <button class="btn btn-success mt-2" (click)="invocarSweetAlert()">Notificar autoridades</button>
+          </div>
         </div>
 
         <div class="form-group">
-          <label>Nombre</label>
-          <input [(ngModel)]="marcadorSel.titulo"
+          <label>Nombres</label>
+          <input [(ngModel)]="marcadorSel.nombre"
                   type="text"
                   name="nombre"
-                  class="form-control">
+                  class="form-control"
+                  placeholder="Roxana">
         </div>
 
         <div class="form-group">
-          <label>Apellido</label>
-          <input [(ngModel)]="marcadorSel.titulo"
+          <label>Apellidos</label>
+          <input [(ngModel)]="marcadorSel.apellido"
           type="text"
-          name="nombre"
-          class="form-control">
+          name="apellido"
+          class="form-control"
+          placeholder="Ramirez Mercado">
         </div>
 
 
 
         <div class="form-group">
-          <label>Latitud</label>
-          <input [(ngModel)]="marcadorSel.titulo"
+          <label>Edad</label>
+          <input [(ngModel)]="marcadorSel.edad"
           type="text"
-          name="nombre"
-          class="form-control">
+          name="edad"
+          class="form-control"
+          placeholder="30">
         </div>
 
         <div class="form-group">
-          <label>Longitud</label>
-          <input [(ngModel)]="marcadorSel.titulo"
+          <label>Sexo</label>
+          <input [(ngModel)]="marcadorSel.sexo"
           type="text"
-          name="nombre"
-          class="form-control">
+          name="sexo"
+          class="form-control"
+          placeholder="Femenino">
+        </div>
+
+        <div class="form-group">
+          <label>Pasaporte</label>
+          <input [(ngModel)]="marcadorSel.pasaporte"
+          type="text"
+          name="pasaporte"
+          class="form-control"
+          placeholder="8857448959484">
         </div>
         
 

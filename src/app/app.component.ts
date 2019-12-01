@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MapasService } from "./services/mapas.service";
 import { Marcador } from "./interfaces/marcador.interface";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -65,6 +66,18 @@ export class AppComponent {
 
     this._ms.guardarMarcadores();
 
+  }
+  invocarSweetAlert(){
+    
+    
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: " <div> <h4> <i class='fa fa-fire-extinguisher'></i>  Fue notificado a bomberos </h4> <h4> <i class='fas fa-user-shield'></i> Fue notificado a la policia </h4>  <h4> <i class='fas fa-store-alt'></i> Fue notificado a la municipalidad local </h4>  </div>",
+      showConfirmButton: false,
+      timer: 1500
+    })
+  
   }
 
 }
